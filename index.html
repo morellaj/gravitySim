@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Falling objects simulator" />
+    <meta name="author" content="Alex Morelli" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width = 450" />
+    <title>Falling objects simulator - gravity, drag, and elasticity</title>
+    <link href="main.css" rel="stylesheet" media="screen" />
+  </head>
+
+
+  <body>
+    <div id="settings">
+      <ul id="settings-list">
+        <div class="wrapper">
+          <li><label for="ball-size">Ball Size: <input type="number" id="ball-size" min="1" max="300" value="50"></input></label></li>
+          <p> Diameter of the next ball created. Range 1 - 300. </p>
+        </div>
+        <div class="wrapper">
+          <li><label for="elasticity">Elasticity: <input type="number" id="elasticity" min="0" max="100" value="100"></input></label></li>
+          <p> "Bounciness" of next ball created. Bouncy balls have high elasticity, while bricks have low elasticity. Range 0 - 100 </p>
+        </div>
+        <div class="wrapper">
+          <li><label for="mass">Mass: <input type="number" id="mass" min="1" max="3000" value="50"></input></label></li>
+          <p> Mass of the next ball created. Changes the behavior during collisions with other objects. Range 1 - 3000. </p>
+        </div>
+        <div class="wrapper">
+          <li><label for="color">Color: <input type="text" id="color" value="Red"></input></label></li>
+          <p> Color or next ball created. </p>
+        </div>
+        <div class="wrapper">
+          <li><label for="gravity">Gravity: <input type="number" id="gravity" min="0" max="1000" value="100"></input></label></li>
+          <p> Gravitational force of the environment, causing the balls to accelerate down. Range 0 - 1000. </p>
+        </div>
+        <div class="wrapper">
+          <li><label for="drag">Drag: <input type="number" id="drag" min="0" max="100" value="0"></input></label></li>
+          <p id="drag-p"> Friction of the surrounding environmente that causes moving objects to slow down. Empty space has no drag, air has some drag, and water has high drag. Range 0 - 100. </p>
+        </div>
+        <div class="wrapper">
+          <li><button id="reset-balls" class="btn btn-default setting-button">Reset Balls</button> </li>
+          <p> Remove all the balls. </p>
+        </div>
+        <div class="wrapper">
+          <li><button id="reset-game" class="btn btn-default setting-button">Reset Game</button> </li>
+          <p id="reset-game-p"> Return to the start screen. </p>
+        </div>
+      </ul>
+    </div>
+
+
+    <div id="panels">
+      <div id="message" class="ui">
+        <h2 id="title">Gravity Game</h2>
+        <p>
+          After starting, click anywhere on the screen to create a ball (limit of 10 balls). Click and drag a ball to move it around. Physics settings can be adjusted at the top of the screen. Pre-configured environments are below.
+        </p>
+        <p class="credits">
+          This was created with heavy inspiration from the code of <a href="https://github.com/hakimel/Core">Core</a> by <a href="http://hakim.se/">Hakim El Hattab</a>
+        </p>
+        <div class="text-center">
+          <button id="startButton" class="start-button btn btn-default">Start game</button>
+          <div class="dropdown">
+            <p> Pre-configured environments: </p>
+            <label for="sel1"></label>
+            <select class="form-control" id="sel1">
+              <option> Default </option>
+              <option> Moon </option>
+              <option> Earth </option>
+              <option> Jupiter </option>
+              <option> Ocean </option>
+              <option> Space </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <canvas id="background">
+      <p class="no-canvas">
+        You need a <a href="http://www.google.com/chrome">modern browser</a> to view this.
+      </p>
+    </canvas>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="gravitySim.js"></script>
+
+
+  </body>
+
+</html>
