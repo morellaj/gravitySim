@@ -1,2 +1,6 @@
 # gravitySim
-Simulator for gravity, drag, and elasticity written in javascript and HTML
+Javascript game that simulates gravity, drag, and elasticity
+
+
+# Credits
+This is my first javascript game, and while creating it I learned a lot from Core by Hakim El Hattab
